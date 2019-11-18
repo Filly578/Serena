@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+const {Client, Attachment} = require('discord.js');
+const bot = new Client();
 
 const token = 'NjQ1NjM5NjM3ODA0NjQ2NDAx.XdFo0Q.ATm6hPUVxMRzYYWW_ca9xP8VETw';
 
@@ -15,6 +15,9 @@ bot.on('message', msg=>{
   let args = msg.content.substring(PREFIX.length).split(" ");
 
   switch(args[0]){
+        case 'send':
+            const attachment = new Attachment('https://discordapp.com/assets/f7a4131e47f50b48b3f85f73c47ff1dc.png')
+            msg.channel.send(msg.author, attachment);
         case 'embed':
             const embed = new Discord.RichEmbed()
             .setTitle('User Information')
